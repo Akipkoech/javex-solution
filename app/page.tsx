@@ -1,103 +1,129 @@
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react"
+import FeaturedServices from "@/components/featured-services"
+import NewsletterSignup from "@/components/newsletter-signup"
+import WhatsAppButton from "@/components/whatsapp-button"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="flex flex-col gap-20">
+      {/* Hero Section */}
+      <section className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5 z-0" />
+        <div className="container relative z-10 px-4 py-24 md:py-32 mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="md:w-1/2 flex flex-col gap-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Innovative Tech Solutions for Your Business
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Javex Solutions delivers cutting-edge technology services to help your business thrive in the digital age.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <Button asChild size="lg" className="font-medium">
+                <Link href="/portfolio">View Our Work</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="font-medium">
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="md:w-1/2 relative">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/placeholder.svg?height=600&width=600"
+              alt="Javex Solutions Technology"
+              width={600}
+              height={600}
+              className="rounded-lg shadow-xl"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Featured Services */}
+      <section className="container px-4 py-16 mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We offer a comprehensive range of technology services to meet your business needs.
+          </p>
+        </div>
+        <FeaturedServices />
+        <div className="text-center mt-12">
+          <Button asChild variant="outline" size="lg" className="font-medium">
+            <Link href="/services">
+              View All Services
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-muted py-16">
+        <div className="container px-4 mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Javex Solutions</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We're committed to delivering exceptional value and results for our clients.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Expert Team",
+                description:
+                  "Our team of skilled professionals brings years of experience and expertise to every project.",
+              },
+              {
+                title: "Cutting-Edge Technology",
+                description: "We stay at the forefront of technological advancements to deliver innovative solutions.",
+              },
+              {
+                title: "Client-Focused Approach",
+                description:
+                  "We prioritize your needs and goals, ensuring solutions that align with your business objectives.",
+              },
+            ].map((item, index) => (
+              <div key={index} className="bg-background p-6 rounded-lg shadow-sm">
+                <CheckCircle className="h-10 w-10 text-primary mb-4" />
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-primary text-primary-foreground py-16">
+        <div className="container px-4 mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+            Let's discuss how Javex Solutions can help you achieve your technology goals.
+          </p>
+          <Button asChild size="lg" variant="secondary" className="font-medium">
+            <Link href="/contact">
+              Get Started Today
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="container px-4 py-16 mx-auto">
+        <NewsletterSignup />
+      </section>
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </div>
-  );
+  )
+}
+export const metadata = {
+  title: "Javex Solutions - Innovative Tech Solutions",
+  description: "Delivering cutting-edge technology services to help your business thrive in the digital age.",
 }
