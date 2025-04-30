@@ -1,136 +1,140 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Linkedin, Mail, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Twitter, Home, Code, Phone, ChevronRight } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-muted">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-r from-blue-900 to to-black backdrop-blur-lg border-t border-blue-500/20">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          {/* Company Info */}
           <div className="md:col-span-1">
-            <Link href="/" className="text-2xl font-bold">
-              Javex<span className="text-primary">Solutions</span>
+            <Link href="/" className="text-3xl font-bold flex items-center gap-2">
+              <span>Javex</span>
+              <span className="text-white font-bold">Solutions</span>
             </Link>
-            <p className="mt-4 text-muted-foreground">Innovative technology solutions for businesses of all sizes.</p>
+            <p className="mt-4 text-white leading-relaxed">
+              Innovative technology solutions for businesses of all sizes.
+            </p>
             <div className="flex space-x-4 mt-6">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
+              {[
+                { icon: Facebook, label: "Facebook", href: "#" },
+                { icon: Twitter, label: "Twitter", href: "#" },
+                { icon: Instagram, label: "Instagram", href: "#" },
+                { icon: Linkedin, label: "LinkedIn", href: "#" },
+              ].map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  className="text-shadow-gray-50 hover:text-white transition-all duration-300 transform hover:scale-110"
+                >
+                  <social.icon className="h-5 w-5" />
+                  <span className="sr-only">{social.label}</span>
+                </Link>
+              ))}
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  Contact
-                </Link>
-              </li>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-white ">
+              <Home className="h-5 w-5 text-gray-50" />
+              Quick Links
+            </h3>
+            <ul className="space-y-3">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About Us" },
+                { href: "/services", label: "Services" },
+                { href: "/portfolio", label: "Portfolio" },
+                { href: "/contact", label: "Contact" },
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-50 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1 group"
+                  >
+                    <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Web Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Mobile App Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Custom Software
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Cloud Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Cybersecurity
-                </Link>
-              </li>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-white">
+              <Code className="h-5 w-5 text-white" />
+              Services
+            </h3>
+            <ul className="space-y-3">
+              {[
+                "Web Development",
+                "Mobile App Development",
+                "Custom Software",
+                "Cloud Services",
+                "Cybersecurity",
+              ].map((service, index) => (
+                <li key={index}>
+                  <Link
+                    href="/services"
+                    className="text-gray-50 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1 group"
+                  >
+                    <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {service}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Contact Us */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <Mail className="h-4 w-4 mr-2 text-primary" />
-                <span className="text-muted-foreground">info@javexsolutions.com</span>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-white">
+              <Phone className="h-5 w-5 text-green-500" />
+              Contact Us
+            </h3>
+            <ul className="space-y-4 mb-6">
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-red-600" />
+                <span className="text-gray-50">info@javexsolutions.com</span>
               </li>
-              <li className="text-muted-foreground">
+              <li className="text-gray-50 leading-relaxed">
                 123 Tech Park Avenue, Suite 500
                 <br />
                 San Francisco, CA 94103
               </li>
-              <li className="text-muted-foreground">+1 (555) 123-4567</li>
+              <li className="text-gray-50">+(254)74 123-4567</li>
             </ul>
-            <Button asChild className="mt-4">
+            <Button
+              asChild
+              className="bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-transform hover:scale-105"
+            >
               <Link href="/contact">Get in Touch</Link>
             </Button>
           </div>
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">&copy; {currentYear} Javex Solutions. All rights reserved.</p>
+        {/* Bottom Bar */}
+        <div className="border-t border-blue-500/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-white text-sm font-bold">© {currentYear} Javex Solutions. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              Terms of Service
-            </Link>
-            <Link href="/sitemap" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Sitemap
-            </Link>
+            {[
+              { href: "/privacy-policy", label: "Privacy Policy" },
+              { href: "/terms-of-service", label: "Terms of Service" },
+              { href: "/sitemap", label: "Sitemap" },
+            ].map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="text-sm text-gray-50 hover:text-blue-500 transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
