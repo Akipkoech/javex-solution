@@ -10,7 +10,7 @@ export default function NewsletterSignup() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     setIsSubmitting(true)
 
@@ -29,7 +29,6 @@ export default function NewsletterSignup() {
   return (
     <div className="bg-muted p-8 rounded-lg">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h2>
         <p className="text-muted-foreground">
           Stay updated with the latest technology trends and news from Javex Solutions.
         </p>
