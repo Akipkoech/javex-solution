@@ -42,6 +42,26 @@ const services = [
     description: "Transform your online store with robust e-commerce platforms and payment gateways.",
     icon: "🛒",
   },
+  {
+    title: "Digital Marketing",
+    description: "Boost your online presence with targeted marketing strategies and SEO optimization.",
+    icon: "📈",
+  },
+  {
+    title: "Blockchain Development",
+    description: "Implement secure and transparent blockchain solutions for your business.",
+    icon: "🔗",
+  },
+  {
+    title: "UI/UX Design",
+    description: "Craft intuitive user interfaces and experiences that captivate users.",
+    icon: "🎨",
+  },
+  {
+    title: "DevOps Services",
+    description: "Enhance collaboration between development and operations for faster delivery.",
+    icon: "⚙️",
+  },
 ]
 
 export default function FeaturedServices() {
