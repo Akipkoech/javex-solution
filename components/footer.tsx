@@ -103,9 +103,9 @@ export default function Footer() {
                 <span className="text-gray-50">info@javexsolutions.com</span>
               </li>
               <li className="text-gray-50 leading-relaxed">
-                123 Tech Park Avenue, Suite 500
+                Old Mutual Towers,UpperHill
                 <br />
-                San Francisco, CA 94103
+                Nairobi, Kenya
               </li>
               <li className="text-gray-50">+(254)74 123-4567</li>
             </ul>

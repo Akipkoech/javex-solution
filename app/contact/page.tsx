@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
+import WhatsAppButton from "@/components/whatsapp-button"
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react"
 
 export default function ContactPage() {
@@ -47,13 +48,16 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-20 bg-slate-100 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-muted">
+      <section className="bg-slate-200/50 backdrop-blur-lg">
         <div className="container px-4 py-16 md:py-24 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="text-lg text-muted-foreground">
+            <div className="flex justify-center mb-6">
+              <Mail className="h-12 w-12 text-blue-500" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">Contact Us</h1>
+            <p className="text-lg text-gray-600 leading-relaxed">
               Have a question or ready to start a project? Get in touch with our team.
             </p>
           </div>
@@ -61,14 +65,14 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="container px-4 py-8 mx-auto">
+      <section className="container px-4 py-16 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card>
+          <Card className="bg-white/90 border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 backdrop-blur-md">
             <CardContent className="p-6">
-              <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+              <h2 className="text-2xl font-bold mb-6 text-black">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name" className="text-black">Name</Label>
                   <Input
                     id="name"
                     name="name"
@@ -76,10 +80,11 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
+                    className="border-blue-500/20 focus:border-blue-500 focus:ring-blue-500 rounded-lg transition-all duration-300"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-black">Email</Label>
                   <Input
                     id="email"
                     name="email"
@@ -88,10 +93,11 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Your email address"
                     required
+                    className="border-blue-500/20 focus:border-blue-500 focus:ring-blue-500 rounded-lg transition-all duration-300"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="subject" className="text-black">Subject</Label>
                   <Input
                     id="subject"
                     name="subject"
@@ -99,10 +105,11 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="What is this regarding?"
                     required
+                    className="border-blue-500/20 focus:border-blue-500 focus:ring-blue-500 rounded-lg transition-all duration-300"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" className="text-black">Message</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -111,9 +118,14 @@ export default function ContactPage() {
                     placeholder="Your message"
                     rows={5}
                     required
+                    className="border-blue-500/20 focus:border-blue-500 focus:ring-blue-500 rounded-lg transition-all duration-300"
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-transform hover:scale-105"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
@@ -122,30 +134,30 @@ export default function ContactPage() {
 
           <div className="space-y-8">
             <div>
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold mb-6 text-black">Contact Information</h2>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <Mail className="h-5 w-5 text-primary mr-3 mt-0.5" />
+                  <Mail className="h-5 w-5 text-blue-500 mr-3 mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">info@javexsolutions.com</p>
+                    <h3 className="font-semibold text-black">Email</h3>
+                    <p className="text-gray-600">info@javexsolutions.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Phone className="h-5 w-5 text-primary mr-3 mt-0.5" />
+                  <Phone className="h-5 w-5 text-blue-500 mr-3 mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <h3 className="font-semibold text-black">Phone</h3>
+                    <p className="text-gray-600">+(254)745 340-588</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5" />
+                  <MapPin className="h-5 w-5 text-blue-500 mr-3 mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Office Location</h3>
-                    <p className="text-muted-foreground">
-                      123 Tech Park Avenue, Suite 500
+                    <h3 className="font-semibold text-black">Office Location</h3>
+                    <p className="text-gray-600">
+                      Old Mutual Towers, Upperhill
                       <br />
-                      San Francisco, CA 94103
+                      Nairobi, Kenya
                     </p>
                   </div>
                 </div>
@@ -153,17 +165,17 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-6">Business Hours</h2>
-              <div className="space-y-2">
-                <div className="flex justify-between">
+              <h2 className="text-2xl font-bold mb-6 text-black">Business Hours</h2>
+              <div className="space-y-2 bg-white/90 p-4 rounded-xl border border-blue-500/20 shadow-lg transition-all duration-300">
+                <div className="flex justify-between text-gray-600">
                   <span>Monday - Friday:</span>
                   <span>9:00 AM - 6:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-gray-600">
                   <span>Saturday:</span>
                   <span>10:00 AM - 2:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-gray-600">
                   <span>Sunday:</span>
                   <span>Closed</span>
                 </div>
@@ -171,29 +183,29 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-6">Connect With Us</h2>
+              <h2 className="text-2xl font-bold mb-6 text-black">Connect With Us</h2>
               <div className="flex space-x-4">
                 <Link
                   href="#"
-                  className="h-10 w-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="h-10 w-10 bg-slate-200/50 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:text-white transition-transform duration-300 hover:scale-110"
                 >
                   <Facebook className="h-5 w-5" />
                 </Link>
                 <Link
                   href="#"
-                  className="h-10 w-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="h-10 w-10 bg-slate-200/50 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:text-white transition-transform duration-300 hover:scale-110"
                 >
                   <Twitter className="h-5 w-5" />
                 </Link>
                 <Link
                   href="#"
-                  className="h-10 w-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="h-10 w-10 bg-slate-200/50 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:text-white transition-transform duration-300 hover:scale-110"
                 >
                   <Instagram className="h-5 w-5" />
                 </Link>
                 <Link
                   href="#"
-                  className="h-10 w-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="h-10 w-10 bg-slate-200/50 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:text-white transition-transform duration-300 hover:scale-110"
                 >
                   <Linkedin className="h-5 w-5" />
                 </Link>
@@ -204,21 +216,30 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="container px-4 py-8 mx-auto">
-        <div className="bg-muted rounded-lg overflow-hidden h-96">
-          {/* Google Map would go here - using placeholder for now */}
-          <div className="w-full h-full flex items-center justify-center bg-muted">
-            <p className="text-muted-foreground">Google Map Embed Would Appear Here</p>
-          </div>
+      <section className="container px-4 py-16 mx-auto">
+        <div className="bg-slate-200/50 rounded-xl overflow-hidden h-96 border border-blue-500/20 shadow-lg">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.962659840819!2d36.816283974080804!3d-1.2991324356384324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10e400e852b7%3A0xae4857eea7d6651!2sOld%20Mutual%20Tower!5e1!3m2!1sen!2ske!4v1746132536170!5m2!1sen!2ske" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+          ></iframe>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-muted py-16">
+      <section className="bg-slate-200/50 backdrop-blur-lg py-16">
         <div className="container px-4 mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-2 text-black">
+              <Mail className="h-8 w-8 text-blue-500" />
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Find quick answers to common questions about our services.
             </p>
           </div>
@@ -245,14 +266,20 @@ export default function ContactPage() {
                   "Our pricing is project-based and depends on the scope, complexity, and timeline. We provide detailed quotes after understanding your specific requirements during the initial consultation.",
               },
             ].map((item, index) => (
-              <div key={index} className="bg-background p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-bold mb-2">{item.question}</h3>
-                <p className="text-muted-foreground">{item.answer}</p>
-              </div>
+              <Card
+                key={index}
+                className="bg-white/90 p-6 rounded-xl border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 backdrop-blur-md"
+              >
+                <h3 className="text-xl font-bold mb-2 text-black">{item.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+              </Card>
             ))}
           </div>
         </div>
       </section>
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { MessageSquare } from "lucide-react"
 
 export default function WhatsAppButton() {
   const openWhatsApp = () => {
-    window.open("https://wa.me/15551234567", "_blank")
+    window.open("https://wa.me/+254745340588", "_blank")
   }
 
   return (
