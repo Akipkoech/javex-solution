@@ -63,24 +63,24 @@ export default function AboutPage() {
               Our Story
             </h2>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              Founded in 2015, Javex Solutions began with a simple mission: to make cutting-edge technology accessible
-              to businesses of all sizes.
+              Founded in 2024 by a group of close friends fresh out of university, Javex Solutions started with a bold idea: to turn our passion for tech into something that could make a real impact.
             </p>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              What started as a small team of passionate developers has grown into a comprehensive technology partner
-              serving clients across industries and around the globe.
+              What began as late-night coding sessions and big dreams has grown into a thriving tech company helping businesses of all sizes build smarter, faster, and better.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Throughout our journey, we've remained committed to our core values of innovation, excellence, and client
-              satisfaction, driving us to continuously evolve and improve our services.
+              We’ve stayed true to our roots—fueling every project with creativity, collaboration, and the drive to keep learning and pushing boundaries. The journey is just getting started, and we’re excited for what’s ahead.
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Our journey is just beginning, and we can't wait to see where it takes us next.
             </p>
           </div>
           <div className="md:w-1/2">
             <Image
-              src="/placeholder.svg?height=500&width=600"
-              alt="Javex Solutions Office"
+              src="/images/Javex-group.jpg"
+              alt="Javex Solutions Group Photo"
               width={600}
-              height={500}
+              height={700}
               className="rounded-xl shadow-lg border border-blue-500/20 transition-transform hover:scale-105"
             />
           </div>
