@@ -87,13 +87,16 @@ export default function TestimonialsPage() {
   ]
 
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-20 bg-slate-100 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-muted">
+      <section className="bg-slate-200/50 backdrop-blur-lg">
         <div className="container px-4 py-16 md:py-24 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Client Testimonials</h1>
-            <p className="text-lg text-muted-foreground">
+            <div className="flex justify-center mb-6">
+              <Quote className="h-12 w-12 text-blue-500" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">Client Testimonials</h1>
+            <p className="text-lg text-gray-600 leading-relaxed">
               Hear what our clients have to say about their experience working with Javex Solutions.
             </p>
           </div>
@@ -101,11 +104,11 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Featured Testimonial */}
-      <section className="container px-4 py-8 mx-auto">
-        <div className="bg-primary/5 p-8 md:p-12 rounded-lg max-w-4xl mx-auto relative">
-          <Quote className="h-16 w-16 text-primary/20 absolute top-6 left-6" />
+      <section className="container px-4 py-16 mx-auto">
+        <div className="bg-white/90 p-8 md:p-12 rounded-xl max-w-4xl mx-auto relative border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 backdrop-blur-md">
+          <Quote className="h-16 w-16 text-blue-500/20 absolute top-6 left-6" />
           <div className="relative z-10">
-            <p className="text-xl md:text-2xl italic mb-8 text-center">
+            <p className="text-xl md:text-2xl italic mb-8 text-center text-gray-600 leading-relaxed">
               "Partnering with Javex Solutions was one of the best decisions we made for our business. Their team's
               technical expertise, creativity, and commitment to our success resulted in a digital solution that has
               transformed our operations and delighted our customers."
@@ -116,32 +119,40 @@ export default function TestimonialsPage() {
                 alt="James Wilson"
                 width={120}
                 height={120}
-                className="rounded-full mb-4"
+                className="rounded-full mb-4 transition-transform duration-300 hover:scale-105"
               />
-              <h3 className="text-xl font-bold">James Wilson</h3>
-              <p className="text-primary">CEO, InnovateX</p>
+              <h3 className="text-xl font-bold text-black">James Wilson</h3>
+              <p className="text-blue-500">CEO, InnovateX</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Client Testimonials Grid */}
-      <section className="container px-4 py-8 mx-auto">
+      <section className="container px-4 py-16 mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-2 text-black">
+            <Quote className="h-8 w-8 text-blue-500" />
+            What Our Clients Say
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             We're proud of the relationships we've built and the results we've delivered.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="flex flex-col h-full">
+            <Card
+              key={index}
+              className="flex flex-col h-full bg-white/90 border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 backdrop-blur-md"
+            >
               <CardContent className="pt-6 flex-grow">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className={`w-5 h-5 ${i < testimonial.rating ? "text-yellow-400" : "text-gray-300"}`}
+                      className={`w-5 h-5 transition-transform duration-300 hover:scale-110 ${
+                        i < testimonial.rating ? "text-yellow-400" : "text-gray-300"
+                      }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -149,20 +160,20 @@ export default function TestimonialsPage() {
                     </svg>
                   ))}
                 </div>
-                <Quote className="h-8 w-8 text-primary/40 mb-4" />
-                <p className="italic mb-6">{testimonial.quote}</p>
+                <Quote className="h-8 w-8 text-blue-500/40 mb-4" />
+                <p className="italic mb-6 text-gray-600 leading-relaxed">{testimonial.quote}</p>
               </CardContent>
-              <CardFooter className="flex items-center gap-4 pt-4 border-t">
+              <CardFooter className="flex items-center gap-4 pt-4 border-t border-blue-500/10">
                 <Image
                   src={testimonial.image || "/placeholder.svg"}
                   alt={testimonial.name}
                   width={50}
                   height={50}
-                  className="rounded-full"
+                  className="rounded-full transition-transform duration-300 hover:scale-105"
                 />
                 <div>
-                  <h3 className="font-bold">{testimonial.name}</h3>
-                  <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                  <h3 className="font-bold text-black">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-600">{testimonial.position}</p>
                 </div>
               </CardFooter>
             </Card>
@@ -171,26 +182,32 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Video Testimonials */}
-      <section className="bg-muted py-16">
+      <section className="bg-slate-200/50 backdrop-blur-lg py-16">
         <div className="container px-4 mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Video Testimonials</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-2 text-black">
+              <Quote className="h-8 w-8 text-blue-500" />
+              Video Testimonials
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Hear directly from our clients about their experience working with us.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {videoTestimonials.map((testimonial, index) => (
-              <div key={index} className="bg-background p-6 rounded-lg shadow-sm">
+              <Card
+                key={index}
+                className="bg-white/90 p-6 rounded-xl border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 backdrop-blur-md"
+              >
                 <div className="relative aspect-video mb-6 overflow-hidden rounded-md">
                   <Image
                     src={testimonial.image || "/placeholder.svg"}
                     alt={`${testimonial.name} Video Testimonial`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-16 w-16 rounded-full bg-primary/90 flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
+                    <div className="h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-transform duration-300 hover:scale-110">
                       <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path
                           strokeLinecap="round"
@@ -208,12 +225,12 @@ export default function TestimonialsPage() {
                     </div>
                   </div>
                 </div>
-                <p className="italic mb-4">{testimonial.quote}</p>
+                <p className="italic mb-4 text-gray-600 leading-relaxed">{testimonial.quote}</p>
                 <div>
-                  <h3 className="font-bold">{testimonial.name}</h3>
-                  <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                  <h3 className="font-bold text-black">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-600">{testimonial.position}</p>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
@@ -221,34 +238,38 @@ export default function TestimonialsPage() {
 
       {/* Case Study Highlight */}
       <section className="container px-4 py-16 mx-auto">
-        <div className="max-w-4xl mx-auto bg-muted p-8 rounded-lg">
+        <div className="max-w-4xl mx-auto bg-white/90 p-8 rounded-xl border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 backdrop-blur-md">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2">
-              <h2 className="text-2xl font-bold mb-4">Success Story: TechNova</h2>
-              <p className="mb-4">
+              <h2 className="text-2xl font-bold mb-4 text-black">Success Story: TechNova</h2>
+              <p className="mb-4 text-gray-600 leading-relaxed">
                 TechNova approached us with the challenge of modernizing their legacy systems while maintaining business
                 continuity. Our team developed a phased migration strategy and custom software solution that resulted
                 in:
               </p>
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
-                  <ArrowRight className="h-5 w-5 text-primary mr-2 shrink-0 mt-0.5" />
-                  <span>50% reduction in processing time</span>
+                  <ArrowRight className="h-5 w-5 text-blue-500 mr-2 shrink-0 mt-0.5" />
+                  <span className="text-gray-600">50% reduction in processing time</span>
                 </li>
                 <li className="flex items-start">
-                  <ArrowRight className="h-5 w-5 text-primary mr-2 shrink-0 mt-0.5" />
-                  <span>35% decrease in operational costs</span>
+                  <ArrowRight className="h-5 w-5 text-blue-500 mr-2 shrink-0 mt-0.5" />
+                  <span className="text-gray-600">35% decrease in operational costs</span>
                 </li>
                 <li className="flex items-start">
-                  <ArrowRight className="h-5 w-5 text-primary mr-2 shrink-0 mt-0.5" />
-                  <span>Improved data security and compliance</span>
+                  <ArrowRight className="h-5 w-5 text-blue-500 mr-2 shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Improved data security and compliance</span>
                 </li>
                 <li className="flex items-start">
-                  <ArrowRight className="h-5 w-5 text-primary mr-2 shrink-0 mt-0.5" />
-                  <span>Seamless integration with new technologies</span>
+                  <ArrowRight className="h-5 w-5 text-blue-500 mr-2 shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Seamless integration with new technologies</span>
                 </li>
               </ul>
-              <Button asChild variant="outline">
+              <Button
+                asChild
+                variant="outline"
+                className="w-full border-blue-500 text-blue-500 hover:bg-blue-500/10 rounded-full transition-transform hover:scale-105"
+              >
                 <Link href="/portfolio">Read Full Case Study</Link>
               </Button>
             </div>
@@ -258,16 +279,16 @@ export default function TestimonialsPage() {
                 alt="TechNova Case Study"
                 width={500}
                 height={300}
-                className="rounded-lg w-full"
+                className="rounded-lg w-full object-cover transition-transform duration-300 hover:scale-105"
               />
-              <div className="mt-4 p-4 bg-background rounded-md">
-                <p className="italic">
+              <div className="mt-4 p-4 bg-slate-100/90 rounded-md">
+                <p className="italic text-gray-600 leading-relaxed">
                   "Javex Solutions understood our complex requirements and delivered a solution that not only met our
                   immediate needs but positioned us for future growth."
                 </p>
                 <div className="mt-2">
-                  <p className="font-bold">Thomas Reynolds</p>
-                  <p className="text-sm text-muted-foreground">CTO, TechNova</p>
+                  <p className="font-bold text-black">Thomas Reynolds</p>
+                  <p className="text-sm text-gray-600">CTO, TechNova</p>
                 </div>
               </div>
             </div>
@@ -276,13 +297,18 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary text-primary-foreground py-16">
+      <section className="bg-black text-white py-16">
         <div className="container px-4 mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Become Our Next Success Story?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
             Let's discuss how Javex Solutions can help your business achieve its technology goals.
           </p>
-          <Button asChild size="lg" variant="secondary" className="font-medium">
+          <Button
+            asChild
+            size="lg"
+            variant="secondary"
+            className="bg-white text-blue-500 hover:bg-gray-100 rounded-full transition-transform hover:scale-105"
+          >
             <Link href="/contact">
               Start Your Project
               <ArrowRight className="ml-2 h-4 w-4" />

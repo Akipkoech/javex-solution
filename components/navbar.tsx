@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { ModeToggle } from "@/components/mode-toogle"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { useMobile } from "@/hooks/use-mobile"
@@ -52,7 +51,6 @@ export default function Navbar() {
 
           {isMobile ? (
             <div className="flex items-center gap-4">
-              <ModeToggle />
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="hover:bg-blue-500/20 rounded-full">
@@ -110,7 +108,6 @@ export default function Navbar() {
                 ))}
               </nav>
               <div className="flex items-center gap-4">
-                <ModeToggle />
                 <Button
                   asChild
                   className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-6 py-2"
