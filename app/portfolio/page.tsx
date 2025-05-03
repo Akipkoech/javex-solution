@@ -18,7 +18,7 @@ export default function PortfolioPage() {
       title: "TechNova E-commerce Platform",
       description:
         "A comprehensive e-commerce solution for a leading technology retailer, featuring advanced product filtering, user accounts, and secure payment processing.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/Tech-nova.jpg",
       category: "web",
       technologies: ["Next.js", "Node.js", "MongoDB", "Stripe"],
       link: "#",
@@ -28,7 +28,7 @@ export default function PortfolioPage() {
       title: "HealthTrack Mobile App",
       description:
         "A health and fitness tracking application that allows users to monitor their activity, nutrition, and wellness goals with personalized insights.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/Fitness-app.jpg",
       category: "mobile",
       technologies: ["React Native", "Firebase", "HealthKit", "Google Fit"],
       link: "#",
@@ -38,7 +38,7 @@ export default function PortfolioPage() {
       title: "FinanceFlow Dashboard",
       description:
         "An intuitive financial management dashboard for a fintech startup, providing real-time analytics, transaction monitoring, and reporting tools.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/Finance-flow.jpg",
       category: "web",
       technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
       link: "#",
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
       title: "SmartHome IoT Platform",
       description:
         "A comprehensive IoT platform for smart home device management, featuring real-time monitoring, automation rules, and voice control integration.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/IoT.jpg",
       category: "software",
       technologies: ["Python", "MQTT", "AWS IoT", "React"],
       link: "#",
@@ -58,7 +58,7 @@ export default function PortfolioPage() {
       title: "LogisticsPlus Supply Chain Solution",
       description:
         "An end-to-end supply chain management system for a global logistics company, optimizing inventory, shipping, and delivery processes.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/Supply-chain.jpg",
       category: "software",
       technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
       link: "#",
@@ -68,7 +68,7 @@ export default function PortfolioPage() {
       title: "EduLearn Virtual Classroom",
       description:
         "A virtual learning platform for educational institutions, featuring live classes, course management, and student progress tracking.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/Edu-app.jpg",
       category: "web",
       technologies: ["Next.js", "WebRTC", "MongoDB", "Socket.io"],
       link: "#",

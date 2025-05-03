@@ -11,29 +11,41 @@ export const metadata = {
 export default function AboutPage() {
   const teamMembers = [
     {
-      name: "Alex Johnson",
+      name: "Jacob Muema",
       role: "CEO & Founder",
-      bio: "With over 15 years of experience in the tech industry, Alex founded Javex Solutions with a vision to deliver innovative technology solutions to businesses worldwide.",
-      image: "/placeholder.svg?height=300&width=300",
+      bio: "With over 4 years of experience in the tech industry, Jacob founded Javex Solutions with a vision to deliver innovative technology solutions to businesses worldwide.",
+      image: "/images/founder.jpg",
     },
     {
-      name: "Sarah Chen",
+      name: "Nicholas Mulinge",
       role: "CTO",
-      bio: "Sarah leads our technical team with her extensive knowledge in software architecture and emerging technologies, ensuring we deliver cutting-edge solutions.",
-      image: "/placeholder.svg?height=300&width=300",
+      bio: "Nicholas leads our technical team with his extensive knowledge in software architecture and emerging technologies, ensuring we deliver cutting-edge solutions.",
+      image: "/images/cto.jpg",
     },
     {
-      name: "Michael Rodriguez",
-      role: "Head of Client Services",
-      bio: "Michael ensures our clients receive exceptional service and that our solutions align perfectly with their business objectives and technical requirements.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-    {
-      name: "Emily Patel",
+      name: "Evans Ndilinge",
       role: "Lead Developer",
-      bio: "Emily brings creativity and technical expertise to every project, specializing in creating robust, scalable applications for our clients.",
-      image: "/placeholder.svg?height=300&width=300",
+      bio: "Evans brings creativity and technical expertise to every project, specializing in creating robust, scalable applications for our clients.",
+      image: "/images/lead-developer.jpg",
     },
+    {
+      name: "Meshack Mumo",
+      role: "UX/UI Designer",
+      bio: "Meshack designs user-friendly interfaces that enhance the user experience, making our applications not only functional but also visually appealing.",
+      image: "/images/ui-designer.jpg",
+    },
+    {
+      name: "Alex Koech",
+      role: "Cyber-security Specialist",
+      bio: "Alex ensures the security of our applications and systems, implementing best practices to protect our clients' data and privacy.",
+      image: "/images/cyber-security.jpg",
+    },
+    {
+      name: "Meshack Mue",
+      role: "Electronics Engineer",
+      bio: "Meshack specializes in hardware integration and IoT solutions, bridging the gap between software and hardware for innovative tech solutions.",
+      image: "/images/electronics-engineer.jpg",
+    }
   ]
 
   return (
@@ -144,26 +156,32 @@ export default function AboutPage() {
             <Users className="h-8 w-8 text-blue-500" />
             Meet Our Team
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
             The talented professionals behind Javex Solutions' success.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="overflow-hidden bg-white/90 border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
+              className="overflow-hidden bg-white border border-blue-500/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center"
             >
-              <Image
-                src={member.image || "/placeholder.svg"}
-                alt={member.name}
-                width={300}
-                height={300}
-                className="w-full h-64 object-cover"
-              />
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-black">{member.name}</h3>
-                <p className="text-blue-500 font-medium mb-3">{member.role}</p>
+              <div className="relative w-full pt-8 pb-4 flex justify-center">
+                <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
+                <div className="relative z-10 w-40 h-40 rounded-full border-4 border-white shadow-md overflow-hidden">
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <CardContent className="p-6 text-center flex-1 flex flex-col">
+                <h3 className="text-xl font-bold text-black mb-1">{member.name}</h3>
+                <p className="text-blue-500 font-medium mb-4 pb-2 border-b border-gray-100">{member.role}</p>
                 <p className="text-gray-600 leading-relaxed">{member.bio}</p>
               </CardContent>
             </Card>
