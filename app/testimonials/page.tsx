@@ -1,5 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { ArrowRight, Quote } from "lucide-react"
@@ -13,54 +13,48 @@ export default function TestimonialsPage() {
   const testimonials = [
     {
       name: "Sarah Johnson",
-      position: "CEO, TechStart Inc.",
+      position: "CEO",
       company: "TechStart Inc.",
-      image: "/placeholder.svg?height=100&width=100",
       quote:
         "Working with Javex Solutions transformed our business. Their team delivered a custom software solution that streamlined our operations and increased efficiency by 40%. Their expertise and professionalism exceeded our expectations.",
       rating: 5,
     },
     {
       name: "Michael Chen",
-      position: "CTO, GrowthWave",
+      position: "CTO",
       company: "GrowthWave",
-      image: "/placeholder.svg?height=100&width=100",
       quote:
         "Javex Solutions built our e-commerce platform from the ground up. The attention to detail and focus on user experience resulted in a 25% increase in conversion rates within the first month. I highly recommend their services.",
-      rating: 5,
+      rating: 4,
     },
     {
       name: "Emily Rodriguez",
-      position: "Marketing Director, Innovate Labs",
+      position: "Marketing Director",
       company: "Innovate Labs",
-      image: "/placeholder.svg?height=100&width=100",
       quote:
         "The website Javex Solutions created for us perfectly captures our brand identity and has significantly improved our online presence. Their team was responsive, creative, and delivered on time and within budget.",
       rating: 5,
     },
     {
       name: "David Thompson",
-      position: "Founder, HealthTech Solutions",
+      position: "Founder",
       company: "HealthTech Solutions",
-      image: "/placeholder.svg?height=100&width=100",
       quote:
         "Javex Solutions developed a mobile app for our healthcare service that has revolutionized how we interact with patients. Their understanding of our industry and technical expertise made them the perfect partner for this project.",
       rating: 4,
     },
     {
       name: "Lisa Patel",
-      position: "Operations Manager, Global Logistics",
+      position: "Operations Manager",
       company: "Global Logistics",
-      image: "/placeholder.svg?height=100&width=100",
       quote:
         "The custom logistics software developed by Javex Solutions has streamlined our operations and reduced errors by 60%. Their team took the time to understand our complex requirements and delivered a solution that exceeded our expectations.",
       rating: 5,
     },
     {
       name: "Robert Kim",
-      position: "CEO, RetailPlus",
+      position: "CEO",
       company: "RetailPlus",
-      image: "/placeholder.svg?height=100&width=100",
       quote:
         "Javex Solutions helped us transition to a modern e-commerce platform, migrating years of data without any issues. Their technical expertise and project management skills made what could have been a stressful process smooth and efficient.",
       rating: 5,
@@ -70,17 +64,17 @@ export default function TestimonialsPage() {
   const videoTestimonials = [
     {
       name: "John Martinez",
-      position: "CIO, Enterprise Solutions",
+      position: "CIO",
       company: "Enterprise Solutions",
-      image: "/placeholder.svg?height=300&width=500",
+      videoEmbed: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/_LhhL7ceMGk?si=21rY1Tp8H6sgSSZ7" title="John Martinez Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       quote:
         "Javex Solutions delivered a comprehensive digital transformation for our company that has fundamentally changed how we operate. Their strategic approach and technical expertise were invaluable.",
     },
     {
       name: "Amanda Lewis",
-      position: "Director of Digital, Creative Agency",
+      position: "Director of Digital",
       company: "Creative Agency",
-      image: "/placeholder.svg?height=300&width=500",
+      videoEmbed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/R8xwKj7cS74?si=QYzb7YoSQ6atlgk3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       quote:
         "The web application Javex Solutions built for our agency has become central to our client management process. Their team was collaborative, responsive, and delivered exactly what we needed.",
     },
@@ -114,13 +108,6 @@ export default function TestimonialsPage() {
               transformed our operations and delighted our customers."
             </p>
             <div className="flex flex-col items-center">
-              <Image
-                src="/placeholder.svg?height=120&width=120"
-                alt="James Wilson"
-                width={120}
-                height={120}
-                className="rounded-full mb-4 transition-transform duration-300 hover:scale-105"
-              />
               <h3 className="text-xl font-bold text-black">James Wilson</h3>
               <p className="text-blue-500">CEO, InnovateX</p>
             </div>
@@ -164,16 +151,9 @@ export default function TestimonialsPage() {
                 <p className="italic mb-6 text-gray-600 leading-relaxed">{testimonial.quote}</p>
               </CardContent>
               <CardFooter className="flex items-center gap-4 pt-4 border-t border-blue-500/10">
-                <Image
-                  src={testimonial.image || "/placeholder.svg"}
-                  alt={testimonial.name}
-                  width={50}
-                  height={50}
-                  className="rounded-full transition-transform duration-300 hover:scale-105"
-                />
                 <div>
                   <h3 className="font-bold text-black">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600">{testimonial.position}</p>
+                  <p className="text-sm text-gray-600">{testimonial.position}, {testimonial.company}</p>
                 </div>
               </CardFooter>
             </Card>
@@ -199,36 +179,13 @@ export default function TestimonialsPage() {
                 key={index}
                 className="bg-white/90 p-6 rounded-xl border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 backdrop-blur-md"
               >
-                <div className="relative aspect-video mb-6 overflow-hidden rounded-md">
-                  <Image
-                    src={testimonial.image || "/placeholder.svg"}
-                    alt={`${testimonial.name} Video Testimonial`}
-                    fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-transform duration-300 hover:scale-110">
-                      <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                <div className="aspect-video mb-6 overflow-hidden rounded-md">
+                  <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: testimonial.videoEmbed }} />
                 </div>
                 <p className="italic mb-4 text-gray-600 leading-relaxed">{testimonial.quote}</p>
                 <div>
                   <h3 className="font-bold text-black">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600">{testimonial.position}</p>
+                  <p className="text-sm text-gray-600">{testimonial.position}, {testimonial.company}</p>
                 </div>
               </Card>
             ))}
@@ -297,7 +254,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-black text-white py-16">
+      <section className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-16">
         <div className="container px-4 mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Become Our Next Success Story?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">

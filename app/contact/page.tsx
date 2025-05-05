@@ -1,6 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+// Extend the Window interface to include the emailjs property
+declare global {
+  interface Window {
+    emailjs: {
+      init: (userID: string) => void;
+      send: (
+        serviceID: string,
+        templateID: string,
+        templateParams: {
+          name: string;
+          email: string;
+          subject: string;
+          message: string;
+        }
+      ) => Promise<void>;
+    };
+  }
+}
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -20,6 +39,33 @@ export default function ContactPage() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isEmailJSReady, setIsEmailJSReady] = useState(false)
+
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    script.async = true
+    script.onload = () => {
+      try {
+        if (!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+          throw new Error('NEXT_PUBLIC_EMAILJS_PUBLIC_KEY is not defined')
+        }
+        window.emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) 
+        setIsEmailJSReady(true)
+        console.log("EmailJS initialized successfully")
+      } catch (initError) {
+        console.error("EmailJS Initialization Error:", initError)
+      }
+    }
+    script.onerror = () => {
+      console.error("Failed to load EmailJS script from CDN")
+    }
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -30,21 +76,50 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    if (!isEmailJSReady) {
+      console.error("EmailJS is not ready. Check initialization.")
+      toast({
+        title: "Error",
+        description: "EmailJS is not loaded. Please refresh the page and try again.",
+        variant: "destructive",
+      })
+      setIsSubmitting(false)
+      return
+    }
 
-    toast({
-      title: "Message Sent!",
-      description: "We've received your message and will get back to you soon.",
-    })
+    try {
+      await window.emailjs.send(
+        "service_zfpoh5g",
+        "template_otfp8pc",
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }
+      )
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-    setIsSubmitting(false)
+      toast({
+        title: "Message Sent!",
+        description: "We've received your message and will get back to you soon.",
+      })
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("EmailJS Submission Error:", error)
+      toast({
+        title: "Error",
+        description: "Failed to send message. Check the console for details or try again later.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (

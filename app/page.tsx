@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle, ChevronRight, Users, Rocket, Target, Mail } from "lucide-react"
 import NewsletterSignup from "@/components/newsletter-signup"

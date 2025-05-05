@@ -71,9 +71,6 @@ export default function FeaturedServices() {
     setCurrentIndex((prev) => (prev + 1) % services.length)
   }
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length)
-  }
 
   // Automatic sliding every 3 seconds
   useEffect(() => {

@@ -1,54 +1,22 @@
-"use client"
-
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ArrowRight, Check, Clock, Star } from "lucide-react"
-import { useState, useEffect } from "react"
-
 
 export default function OffersPage() {
   const currentDate = new Date()
   const expiryDate = new Date(currentDate)
   expiryDate.setDate(expiryDate.getDate() + 30)
 
-  const formatDate = (date: { toLocaleDateString: (arg0: string, arg1: { year: string; month: string; day: string }) => any }) => {
+  const formatDate = (date: Date) => {
     return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     })
   }
-
-  // Countdown Timer Logic
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  })
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date().getTime()
-      const distance = expiryDate.getTime() - now
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      })
-
-      if (distance < 0) {
-        clearInterval(timer)
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
 
   const offers = [
     {
@@ -69,7 +37,7 @@ export default function OffersPage() {
     {
       title: "E-commerce Starter",
       description: "Launch your online store with our comprehensive e-commerce solution.",
-      regularPrice: 64987, 
+      regularPrice: 64987,
       offerPrice: 45487,
       features: [
         "Custom e-commerce website",
@@ -212,11 +180,6 @@ export default function OffersPage() {
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Special promotions available for a limited time only. Act fast!
-            </p>
-          </div>
-          <div className="text-center mb-8">
-            <p className="text-lg text-gray-600">
-              Time Left: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
