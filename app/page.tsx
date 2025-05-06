@@ -1,9 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle, ChevronRight, Users, Rocket, Target, Mail } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Rocket, Target, Mail } from "lucide-react"
 import NewsletterSignup from "@/components/newsletter-signup"
 import WhatsAppButton from "@/components/whatsapp-button"
-import FeaturedServices from "@/components/FeaturedServices"
 
 export default function Home() {
   return (
@@ -38,32 +37,15 @@ export default function Home() {
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-full transition-transform hover:scale-105"
+              >
+                <Link href="/services">Our Services</Link>
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Featured Services */}
-      <section className="container px-4 py-16 mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We offer a comprehensive range of technology services to meet your business needs.
-          </p>
-        </div>
-        <FeaturedServices />
-        <div className="text-center mt-12">
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-blue-500 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 font-medium rounded-full transition-transform hover:scale-105"
-          >
-            <Link href="/services">
-              View All Services
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
         </div>
       </section>
 

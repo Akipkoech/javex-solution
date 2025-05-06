@@ -3,7 +3,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ExternalLink, Code, Smartphone, Server } from "lucide-react"
 import { JSX } from "react"
 
@@ -95,56 +94,11 @@ export default function PortfolioPage() {
 
       {/* Portfolio Gallery */}
       <section className="container px-4 py-16 mx-auto">
-        <Tabs defaultValue="all" className="mb-12">
-          <div className="flex justify-center">
-            <TabsList className="bg-white/90 border border-blue-500 rounded-full">
-              <TabsTrigger
-                value="all"
-                className="rounded-full data-[state=active]:border-blue-950 data-[state=active]:text-white hover:bg-blue-500/10"
-              >
-                All Projects
-              </TabsTrigger>
-              <TabsTrigger
-                value="web"
-                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10"
-              >
-                Web Development
-              </TabsTrigger>
-              <TabsTrigger
-                value="mobile"
-                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10"
-              >
-                Mobile Apps
-              </TabsTrigger>
-              <TabsTrigger
-                value="software"
-                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10"
-              >
-                Custom Software
-              </TabsTrigger>
-            </TabsList>
-          </div>
-
-          <TabsContent value="all" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
-              ))}
-            </div>
-          </TabsContent>
-
-          {["web", "mobile", "software"].map((category) => (
-            <TabsContent key={category} value={category} className="mt-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects
-                  .filter((project) => project.category === category)
-                  .map((project, index) => (
-                    <ProjectCard key={index} project={project} />
-                  ))}
-              </div>
-            </TabsContent>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
           ))}
-        </Tabs>
+        </div>
       </section>
 
       {/* Case Studies Section */}
@@ -234,14 +188,14 @@ export default function PortfolioPage() {
 }
 
 type Project = {
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  technologies: string[];
-  link: string;
-  icon: JSX.Element;
-};
+  title: string
+  description: string
+  image: string
+  category: string
+  technologies: string[]
+  link: string
+  icon: JSX.Element
+}
 
 function ProjectCard({ project }: { project: Project }) {
   return (
@@ -258,13 +212,19 @@ function ProjectCard({ project }: { project: Project }) {
       <CardHeader>
         <div className="flex items-center gap-2 mb-2">
           {project.icon}
-          <CardTitle className="text-xl text-black">{project.title}</CardTitle>
+          <CardTitle className="text-xl text-black line-clamp-2">{project.title}</CardTitle>
         </div>
-        <CardDescription className="text-base text-gray-600 leading-relaxed">{project.description}</CardDescription>
+        <CardDescription className="text-base text-gray-600 line-clamp-3 leading-relaxed">
+          {project.description}
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">
         {project.technologies.map((tech, i) => (
-          <Badge key={i} variant="secondary" className="bg-blue-500/10 text-blue-500 hover:bg-blue-500/20">
+          <Badge
+            key={i}
+            variant="secondary"
+            className="bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 text-xs sm:text-sm"
+          >
             {tech}
           </Badge>
         ))}
@@ -273,7 +233,7 @@ function ProjectCard({ project }: { project: Project }) {
         <Button
           asChild
           variant="outline"
-          className="w-full border-blue-500 text-blue-500 hover:bg-blue-500/10 rounded-full transition-transform hover:scale-105"
+          className="w-full border-blue-500 text-blue-500 hover:bg-blue-500/10 rounded-full transition-transform hover:scale-105 text-sm sm:text-base"
         >
           <Link href={project.link} target="_blank" rel="noopener noreferrer">
             View Project
