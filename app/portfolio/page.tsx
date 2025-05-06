@@ -97,28 +97,28 @@ export default function PortfolioPage() {
       <section className="container px-4 py-16 mx-auto">
         <Tabs defaultValue="all" className="mb-12">
           <div className="flex justify-center">
-            <TabsList className="bg-white/90 border border-blue-500 rounded-full">
+            <TabsList className="bg-white/90 border border-blue-500 rounded-full overflow-x-auto whitespace-nowrap">
               <TabsTrigger
                 value="all"
-                className="rounded-full data-[state=active]:border-blue-950 data-[state=active]:text-white hover:bg-blue-500/10"
+                className="rounded-full data-[state=active]:border-blue-950 data-[state=active]:text-white hover:bg-blue-500/10 px-4 py-2"
               >
                 All Projects
               </TabsTrigger>
               <TabsTrigger
                 value="web"
-                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10"
+                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10 px-4 py-2"
               >
                 Web Development
               </TabsTrigger>
               <TabsTrigger
                 value="mobile"
-                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10"
+                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10 px-4 py-2"
               >
                 Mobile Apps
               </TabsTrigger>
               <TabsTrigger
                 value="software"
-                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10"
+                className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white hover:bg-blue-500/10 px-4 py-2"
               >
                 Custom Software
               </TabsTrigger>
@@ -126,7 +126,7 @@ export default function PortfolioPage() {
           </div>
 
           <TabsContent value="all" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
               ))}

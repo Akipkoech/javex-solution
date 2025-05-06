@@ -1,9 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle, ChevronRight, Users, Rocket, Target, Mail } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Rocket, Target, Mail } from "lucide-react"
 import NewsletterSignup from "@/components/newsletter-signup"
 import WhatsAppButton from "@/components/whatsapp-button"
-import FeaturedServices from "@/components/FeaturedServices"
 
 export default function Home() {
   return (
@@ -51,19 +50,38 @@ export default function Home() {
             We offer a comprehensive range of technology services to meet your business needs.
           </p>
         </div>
-        <FeaturedServices />
-        <div className="text-center mt-12">
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-blue-500 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 font-medium rounded-full transition-transform hover:scale-105"
-          >
-            <Link href="/services">
-              View All Services
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+        <div className="flex gap-4 overflow-x-auto whitespace-nowrap snap-x snap-mandatory px-4">
+          {[
+            {
+              title: "Web Development",
+              description: "Build modern, responsive websites tailored to your business needs.",
+              icon: <Rocket className="h-10 w-10 text-blue-400 mb-4" />,
+            },
+            {
+              title: "Mobile Apps",
+              description: "Create user-friendly mobile applications for iOS and Android platforms.",
+              icon: <Users className="h-10 w-10 text-blue-400 mb-4" />,
+            },
+            {
+              title: "Custom Software",
+              description: "Develop custom software solutions to streamline your operations.",
+              icon: <Target className="h-10 w-10 text-blue-400 mb-4" />,
+            },
+            {
+              title: "Cloud Solutions",
+              description: "Leverage cloud technologies to enhance scalability and efficiency.",
+              icon: <CheckCircle className="h-10 w-10 text-blue-400 mb-4" />,
+            },
+          ].map((service, index) => (
+            <div
+              key={index}
+              className="min-w-[250px] md:min-w-[300px] bg-white/90 p-6 rounded-xl border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 snap-center"
+            >
+              {service.icon}
+              <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{service.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
