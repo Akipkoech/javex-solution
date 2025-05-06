@@ -37,51 +37,15 @@ export default function Home() {
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-full transition-transform hover:scale-105"
+              >
+                <Link href="/services">Our Services</Link>
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Featured Services */}
-      <section className="container px-4 py-16 mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We offer a comprehensive range of technology services to meet your business needs.
-          </p>
-        </div>
-        <div className="flex gap-4 overflow-x-auto whitespace-nowrap snap-x snap-mandatory px-4">
-          {[
-            {
-              title: "Web Development",
-              description: "Build modern, responsive websites tailored to your business needs.",
-              icon: <Rocket className="h-10 w-10 text-blue-400 mb-4" />,
-            },
-            {
-              title: "Mobile Apps",
-              description: "Create user-friendly mobile applications for iOS and Android platforms.",
-              icon: <Users className="h-10 w-10 text-blue-400 mb-4" />,
-            },
-            {
-              title: "Custom Software",
-              description: "Develop custom software solutions to streamline your operations.",
-              icon: <Target className="h-10 w-10 text-blue-400 mb-4" />,
-            },
-            {
-              title: "Cloud Solutions",
-              description: "Leverage cloud technologies to enhance scalability and efficiency.",
-              icon: <CheckCircle className="h-10 w-10 text-blue-400 mb-4" />,
-            },
-          ].map((service, index) => (
-            <div
-              key={index}
-              className="min-w-[250px] md:min-w-[300px] bg-white/90 p-6 rounded-xl border border-blue-500/20 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 snap-center"
-            >
-              {service.icon}
-              <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{service.description}</p>
-            </div>
-          ))}
         </div>
       </section>
 
