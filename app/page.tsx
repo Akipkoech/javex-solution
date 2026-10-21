@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex flex-col gap-20 bg-slate-100 min-h-screen">
       {/* Hero Section */}
       <section 
-        className="relative bg-cover bg-center min-h-[700px] flex items-center justify-center" 
+        className="relative bg-cover bg-center min-h-175 flex items-center justify-center" 
         style={{ backgroundImage: "url('/images/hero-section.jpg')" }}
       >
         <div className="absolute inset-0 z-0" />
