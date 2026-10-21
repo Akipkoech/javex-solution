@@ -22,8 +22,8 @@ export default function OffersPage() {
     {
       title: "Website Development Package",
       description: "Get a professional, responsive website for your business at a special discounted rate.",
-      regularPrice: 38987,
-      offerPrice: 25987,
+      regularPrice: 40000,
+      offerPrice: 30000,
       features: [
         "Custom design",
         "Mobile responsive",
@@ -37,8 +37,8 @@ export default function OffersPage() {
     {
       title: "E-commerce Starter",
       description: "Launch your online store with our comprehensive e-commerce solution.",
-      regularPrice: 64987,
-      offerPrice: 45487,
+      regularPrice: 75000,
+      offerPrice: 65000,
       features: [
         "Custom e-commerce website",
         "Product catalog (up to 100 products)",
@@ -52,8 +52,8 @@ export default function OffersPage() {
     {
       title: "Digital Transformation Package",
       description: "Modernize your business operations with our digital transformation services.",
-      regularPrice: 103987,
-      offerPrice: 77987,
+      regularPrice: 100000,
+      offerPrice: 90000,
       features: [
         "Business process analysis",
         "Custom software development",
